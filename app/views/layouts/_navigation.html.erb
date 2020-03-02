@@ -18,7 +18,7 @@
 
 </button>
 
-<%= link_to "Alpha blog", root_path, class: "navbar-brand", id: "logo" %>
+<%= link_to "Nada' Task website", root_path, class: "navbar-brand", id: "logo" %>
 
 </div>
 
@@ -28,10 +28,10 @@
 
 <ul class="nav navbar-nav">
 
-<li><%= link_to "Articles", articles_path %></li>
+<li><%= link_to "Posts", articles_path %></li>
 
 <li><a href="#">Link</a></li>
-
+s
 <li class="dropdown">
 
 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
@@ -72,27 +72,35 @@
 
 <ul class="nav navbar-nav navbar-right">
 
-<li><a href="#">Link</a></li>
+<% if logged_in? %>
+
+<li><%= link_to 'Log out', logout_path, method: :delete %></li>
 
 <li class="dropdown">
 
-<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Profile<span class="caret"></span></a>
 
 <ul class="dropdown-menu">
 
-<li><a href="#">Action</a></li>
+<li><%= link_to "Edit your profile", edit_user_path(current_user) %></li>
 
-<li><a href="#">Another action</a></li>
-
-<li><a href="#">Something else here</a></li>
+<li><%= link_to "View your profile", user_path(current_user) %></li>
 
 <li role="separator" class="divider"></li>
 
-<li><a href="#">Separated link</a></li>
+<li><a href="#">additional empty link</a></li>
 
 </ul>
 
 </li>
+
+<% else %>
+
+<li><%= link_to 'Log in', login_path %></li>
+
+<li><%= link_to 'Sign up', signup_path %></li>
+
+<% end %>
 
 </ul>
 
@@ -101,3 +109,7 @@
 </div><!-- /.container-fluid -->
 
 </nav>
+
+
+
+
