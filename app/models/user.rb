@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
 	has_many :articles
+	has_many :comments
 	before_save { self.email = email.downcase }
 	
 
