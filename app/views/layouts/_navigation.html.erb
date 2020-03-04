@@ -18,7 +18,7 @@
 
 </button>
 
-<%= link_to "Nada' Task website", root_path, class: "navbar-brand", id: "logo" %>
+<%= link_to "Nada's Task website", root_path, class: "navbar-brand", id: "logo" %>
 
 </div>
 
@@ -28,7 +28,7 @@
 
 <ul class="nav navbar-nav">
 
-<li><%= link_to "Posts", articles_path %></li>
+<li><%= link_to "Home", root_path %></li>
 
 <li><a href="#">Link</a></li>
 s
@@ -37,8 +37,7 @@ s
 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
 
 <ul class="dropdown-menu">
-
-<li><%= link_to "New Article", new_article_path %></li>
+<li><a href="#">An action</a></li>
 
 <li><a href="#">Another action</a></li>
 
@@ -82,9 +81,9 @@ s
 
 <ul class="dropdown-menu">
 
-<li><%= link_to "Edit your profile", edit_user_path(current_user) %></li>
-
 <li><%= link_to "View your profile", user_path(current_user) %></li>
+
+<li><%= link_to "Edit your profile", edit_user_path(current_user) %></li>
 
 <li role="separator" class="divider"></li>
 

@@ -30,7 +30,7 @@ def destroy
 
 session[:user_id] = nil
 
-flash[:success] = "Bye Bye. You have logged out"
+flash[:success] = "Bye Bye. You've logged out"
 
 redirect_to root_path
 
