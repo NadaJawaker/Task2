@@ -4,7 +4,11 @@
 
 <div class="col-md-4 col-md-offset-4 center">
 
-<%= gravatar_for @user, size: 150 %>
+<% if @user.profile_picture.attached? %>
+
+<%= image_tag(@user.profile_picture, style: 'width:70%')%>
+
+<%end %>
 
 </div>
 
