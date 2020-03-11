@@ -1,0 +1,29 @@
+<% obj.each do |submission| %>
+
+<div class="row">
+
+<div class="col-xs-8 col-xs-offset-2">
+
+<div class="well well-lg">
+
+<% if logged_in? && current_user == submission.user %>
+
+<div class="article-actions">
+
+<%= link_to "Input", root_path %>
+
+<%= link_to "Source Code", root_path, class: "btn btn-xs btn-primary" %>
+
+<%= link_to "Output", root_path %>
+
+</div>
+
+<% end %>
+
+</div>
+
+</div>
+
+</div>
+
+<% end %>
