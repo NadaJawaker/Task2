@@ -1,4 +1,6 @@
-<% obj.each do |submission| %>
+
+<% obj.reverse_each do |submission| %>
+<% if logged_in? && current_user == submission.user %>
 
 <div class="row">
 
@@ -6,17 +8,13 @@
 
 <div class="well well-lg">
 
-<% if logged_in? && current_user == submission.user %>
 
-<div class="article-actions">
+<%= link_to " #{submission.id}" , submission_path(submission), class: "btn btn-xs btn-primary" %>
+, By
+<%= link_to "#{submission.user.username}", user_path(submission.user) %>
+, 
+<%= submission.status %>
 
-<%= link_to "Input", root_path %>
-
-<%= link_to "Source Code", root_path, class: "btn btn-xs btn-primary" %>
-
-<%= link_to "Output", root_path %>
-
-</div>
 
 <% end %>
 

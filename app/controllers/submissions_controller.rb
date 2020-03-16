@@ -12,15 +12,19 @@ class SubmissionsController < ApplicationController
 
 	@submission = Submission.new(submission_params)
 	@submission.user = current_user
-        #@sub["output"]
-	#@submission = fun(@submission)
-	@submission.output = helpers.fun(@submission)
+	@submission.output = helpers.fun(@submission)[0]
+        #@submission.status= helpers.fun(@submission)[1]
+	if helpers.fun(@submission)[1] == false
+        @submission.status= "Something went wrong :("
+	else
+	@submission.status= "Code run successfully :)"
+	end
 
 	if @submission.save
 
 	flash[:success] = "Your code was successfully submitted"
 
-	redirect_to submission_path(@submission)
+        redirect_to user_path(@submission.user)
 
 	else
 
@@ -32,7 +36,7 @@ class SubmissionsController < ApplicationController
 
 
 	def show
-	@submission = Submission.new
+	@submission = Submission.find(params[:id])
 	end
 
 

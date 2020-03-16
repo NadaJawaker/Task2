@@ -11,7 +11,12 @@
 <%end %>
 
 </div>
-
 </div>
-
-
+</br>
+<% if logged_in? && current_user == @user %>
+<h1 align="center"> <%=@user.username %>'s Submissions:</h1>    
+<%end%>
+</br>
+<div>
+<%= render 'submissions/submission', obj: @user.submissions %>
+</div>
