@@ -1,88 +1,88 @@
 class UsersController < ApplicationController
 
-before_action :set_user, only: [:edit, :update, :show]
+  before_action :set_user, only: [:edit, :update, :show]
 
-before_action :require_same_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update]
 
-def index
+  def index
 
-@users = User.paginate(page: params[:page], per_page: 5)
+    @users = User.paginate(page: params[:page], per_page: 5)
 
-end
+  end
 
-def new
+  def new
 
-@user = User.new
+    @user = User.new
 
-end
+  end
 
-def create
+  def create
 
-@user = User.new(user_params)
+    @user = User.new(user_params)
 
-if @user.save
+    if @user.save
 
-session[:user_id] = @user.id
+      session[:user_id] = @user.id
 
-flash[:success] = "Welcome to my website #{@user.username}"
+      flash[:success] = "Welcome to my website #{@user.username}"
 
-redirect_to user_path(@user)
+      redirect_to user_path(@user)
 
-else
+    else
 
-render 'new'
+      render 'new'
 
-end
+    end
 
-end
+  end
 
-def edit
+  def edit
 
-end
+  end
 
-def update
+  def update
 
-if @user.update(user_params)
+    if @user.update(user_params)
 
-flash[:success] = "Your account was updated successfully"
+      flash[:success] = "Your account was updated successfully"
 
-redirect_to user_path
+      redirect_to user_path
 
-else
+    else
 
-render 'edit'
+      render 'edit'
 
-end
+    end
 
-end
+  end
 
-def show
+  def show
 
 
-end
+  end
 
-private
+  private
 
-def user_params
+  def user_params
 
-params.require(:user).permit(:username, :email, :password, :profile_picture)
+    params.require(:user).permit(:username, :email, :password, :profile_picture)
 
-end
+  end
 
-def set_user
+  def set_user
 
-@user = User.find(params[:id])
+    @user = User.find(params[:id])
 
-end
+  end
 
-def require_same_user
+  def require_same_user
 
-if current_user != @user
+    if current_user != @user
 
-flash[:danger] = "You can only edit your own account"
+      flash[:danger] = "You can only edit your own account"
 
-redirect_to root_path
+      redirect_to root_path
 
-end
-end
+    end
+  end
 end

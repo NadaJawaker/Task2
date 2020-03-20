@@ -2,21 +2,21 @@
 
 <div class="row">
 
-<div class="col-md-4 col-md-offset-4 center">
+  <div class="col-md-4 col-md-offset-4 center">
 
-<% if @user.profile_picture.attached? %>
+    <% if @user.profile_picture.attached? %>
 
-<%= image_tag(@user.profile_picture, style: 'width:70%')%>
+      <%= image_tag(@user.profile_picture, style: 'width:70%')%>
 
-<%end %>
+    <%end %>
 
-</div>
+  </div>
 </div>
 </br>
 <% if logged_in? && current_user == @user %>
-<h1 align="center"> <%=@user.username %>'s Submissions:</h1>    
+  <h1 align="center"> <%=@user.username %>'s Submissions:</h1>    
 <%end%>
 </br>
 <div>
-<%= render 'submissions/submission', obj: @user.submissions %>
+  <%= render 'submissions/submission', obj: @user.submissions %>
 </div>

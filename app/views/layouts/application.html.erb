@@ -2,31 +2,31 @@
 
 <html>
 
-<head>
+  <head>
 
-<title>Nada's Task</title>
+    <title>Nada's Task</title>
 
-<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-<%= csrf_meta_tags %>
+    <%= csrf_meta_tags %>
 
-</head>
+  </head>
 
-<body>
+  <body>
 
-<%= render 'layouts/navigation' %>
+    <%= render 'layouts/navigation' %>
 
-<%= render 'layouts/messages' %>
+    <%= render 'layouts/messages' %>
 
-<div class="container">
+    <div class="container">
 
-<%= yield %>
+      <%= yield %>
 
-</div>
+    </div>
 
-<%= render 'layouts/footer' %>
-</body>
+    <%= render 'layouts/footer' %>
+  </body>
 
 </html>

@@ -1,27 +1,27 @@
 
 <% obj.reverse_each do |submission| %>
-<% if logged_in? && current_user == submission.user %>
+  <% if logged_in? && current_user == submission.user %>
 
-<div class="row">
+    <div class="row">
 
-<div class="col-xs-8 col-xs-offset-2">
+      <div class="col-xs-8 col-xs-offset-2">
 
-<div class="well well-lg">
-
-
-<%= link_to " #{submission.id}" , submission_path(submission), class: "btn btn-xs btn-primary" %>
-, By
-<%= link_to "#{submission.user.username}", user_path(submission.user) %>
-, 
-<%= submission.status %>
+        <div class="well well-lg">
 
 
-<% end %>
+          <%= link_to " #{submission.id}" , submission_path(submission), class: "btn btn-xs btn-primary" %>
+          , by
+          <%= link_to "#{submission.user.username}", user_path(submission.user) %>
+          , 
+          <%= submission.status %>
 
-</div>
 
-</div>
+        <% end %>
 
-</div>
+        </div>
 
-<% end %>
+      </div>
+
+    </div>
+
+  <% end %>
