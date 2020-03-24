@@ -2,12 +2,12 @@ class ApiController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:test]
   
   def test
-    rdm = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
-    errorEnd = (0...50).map { rdm[rand(rdm.length)] }.join
-
+   rdm = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
+   errorEnd = (0...50).map { rdm[rand(rdm.length)] }.join
+   code = Submission.find(params["codeId"]).code
    code_new = <<-CODE
       begin
-        #{params["code"]}
+        #{code}
       rescue Exception => e
         puts e.class.to_s + \" #{errorEnd}\"
       end
