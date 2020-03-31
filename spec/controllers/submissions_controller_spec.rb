@@ -1,15 +1,12 @@
 #require 'rails_helper'
 require 'rails/all'
 
-RSpec.describe SubmissionsController, type:controller do
-  let (:json){
-    Json.parse(response.body)
-  }
 
-  describe 'POST /submissions/cerate' do
-
+  describe '#create' do
+  let(:user) {FactoryGirl.create(:user)}
+  let(:session) { {drupal_user_id: user.uid, drupal_user_role: {test: 'authenticated user'} } }
     it 'expect submission to return a positive status when everything goes well' do
-      post :input, :params => {:code => "puts 123"}
+      post  :params => {:code => "puts 123", :input => "14"}
       expect(json['status']).to eql('Code has run successfully :)')
       expect(json['output']).to eql('123')
     end
@@ -52,4 +49,3 @@ RSpec.describe SubmissionsController, type:controller do
     end     
 
   end
-end
