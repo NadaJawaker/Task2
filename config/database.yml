@@ -3,7 +3,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
   username: nada
-  password: nada123
+  password: nada1234
   timeout: 5000
 
 development:
@@ -24,8 +24,9 @@ production:
   host: localhost
   adapter: postgresql
   encoding: utf8
-  database: task2_production
+  database: judge_production
   pool: 5
-  username: <%= ENV['task2_DATABASE_USER'] %>
-  password: <%= ENV['task2_DATABASE_PASSWORD'] %>
+  username: nada
+  password: nada1234
 
+  
