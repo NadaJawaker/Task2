@@ -1,0 +1,29 @@
+<h1 align="center">Submission Run <%= @submission_run.id %> </h1>
+
+
+<p>
+<b> <h4> Input: </h4> </b>
+<%= simple_format(@submission_run.input) %>
+</p>
+<hr>
+
+<p>
+<b> <h4> Output: </h4></b>
+<%= simple_format(@submission_run.output) %>
+</p>
+<hr>
+
+<p>
+<b> <h4> Status: </h4></b>
+<%= simple_format(@submission_run.status) %>
+</p>
+<hr>
+
+<%= link_to "Back to your submissions", submission_path(@submission_run.submission_id), class: "btn btn-xs btn-success" %>
+
+
+
+
+
+
+

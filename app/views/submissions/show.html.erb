@@ -22,7 +22,16 @@
 <b> <h4> Status: </h4></b>
 <%= simple_format(@submission.status) %>
 </p>
+<hr>
 
+<p>
+<b> <h4> SubmissionRuns: </h4></b>
+</p>
 
+<%lala = @submission.submission_runs %>
+<%lala.reverse_each do |roro| %> 
+  <%= link_to "#{roro.id}", roro, class: "btn btn-xs btn-primary" %>
+  <%end%>
 
+  <hr>
 <%= link_to "Back to your submissions", user_path(@submission.user), class: "btn btn-xs btn-success" %>

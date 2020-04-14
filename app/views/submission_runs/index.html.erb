@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Submission Runs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Input</th>
+      <th>Output</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @submission_runs.each do |submission_run| %>
+      <tr>
+        <td><%= submission_run.input %></td>
+        <td><%= submission_run.output %></td>
+        <td><%= link_to 'Show', submission_run %></td>
+        <td><%= link_to 'Edit', edit_submission_run_path(submission_run) %></td>
+        <td><%= link_to 'Destroy', submission_run, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Submission Run', new_submission_run_path %>

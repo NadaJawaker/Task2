@@ -43,6 +43,7 @@ class SubmissionsController < ApplicationController
 
   def show
     @submission = Submission.find(params[:id])
+    @submission_run = SubmissionRun.all
   end
 
   private
