@@ -27,7 +27,7 @@ class ApiController < ApplicationController
 
     @submission.save
 
-    render json: {output: @submission.output, status: @submission.status},status: :ok
+    render json: {output: @submission.output},status: :ok
   end
 
 
