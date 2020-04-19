@@ -1,37 +1,48 @@
-<h1 align="center">Submission <%= @submission.id %> </h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=ruby&amp;skin=default"></script>
+  </head>
+  <body>
 
-<p>
-<b> <h4> Source code: </h4> </b>
-<%= simple_format(@submission.code) %>
-</p>
-<hr>
+    <h1 align="center">Submission <%= @submission.id %> </h1>
 
-<p>
-<b> <h4> Input: </h4> </b>
-<%= simple_format(@submission.input) %>
-</p>
-<hr>
+    <p>
+    <b> <h4  Source code: </h4> </b>
+    <pre class="prettyprint linenums">
+    <%= @submission.code %>
+    </pre>
+    </p>
 
-<p>
-<b> <h4> Output: </h4></b>
-<%= simple_format(@submission.output) %>
-</p>
-<hr>
+    <hr>
+    <p>
+    <b> <h4> Input: </h4> </b>
+    <%= simple_format(@submission.input) %>
+    </p>
+    <hr>
 
-<p>
-<b> <h4> Status: </h4></b>
-<%= simple_format(@submission.status) %>
-</p>
-<hr>
+    <p>
+    <b> <h4> Output: </h4></b>
+    <%= simple_format(@submission.output) %>
+    </p>
+    <hr>
 
-<p>
-<b> <h4> SubmissionRuns: </h4></b>
-</p>
+    <p>
+    <b> <h4> Status: </h4></b>
+    <%= simple_format(@submission.status) %>
+    </p>
+    <hr>
 
-<%lala = @submission.submission_runs %>
-<%lala.reverse_each do |roro| %> 
-  <%= link_to "#{roro.id}", roro, class: "btn btn-xs btn-primary" %>
-  <%end%>
+    <p>
+    <b> <h4> SubmissionRuns: </h4></b>
+    </p>
 
-  <hr>
-<%= link_to "Back to your submissions", user_path(@submission.user), class: "btn btn-xs btn-success" %>
+    <%runs = @submission.submission_runs %>
+    <%runs.reverse_each do |i| %> 
+      <%= link_to "#{i.id}", i, class: "btn btn-xs btn-primary" %>
+    <%end%>
+
+    <hr>
+    <%= link_to "Back to your submissions", user_path(@submission.user), class: "btn btn-xs btn-success" %>
+  </body>
+</html>

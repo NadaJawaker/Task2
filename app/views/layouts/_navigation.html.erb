@@ -29,9 +29,11 @@
       <ul class="nav navbar-nav">
 
        <li><%= link_to "All users", users_path, color: "black" %></li>
-        
-      <li><%= link_to "Create new submission", new_submission_path %></li>
 
+       <li><%= link_to "Create new submission", new_submission_path %></li>
+       <% if logged_in? %>
+           <li><%=link_to "My Submissions", submissions_path %></li>
+       <%end %>
       </ul>
 
 
